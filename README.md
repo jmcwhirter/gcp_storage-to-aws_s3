@@ -69,10 +69,15 @@ aws lambda update-function-code --function-name GCPtoAWS --zip-file fileb://func
 ```
 
 ### Tear down stacks
+1. Tear down storage
 ```
+aws s3 rm --recursive s3://<bucket_name>
 aws cloudformation delete-stack \
   --stack-name gcp-to-aws-storage \
   --region us-east-1
+```
+2. Tear down function
+```
 aws cloudformation delete-stack \
   --stack-name gcp-to-aws-function \
   --region us-east-1
