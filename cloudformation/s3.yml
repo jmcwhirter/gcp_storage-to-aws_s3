@@ -1,0 +1,16 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Description: GCP to AWS
+Resources:
+  FunctionStorage:
+    Type: AWS::S3::Bucket
+    Properties:
+      Tags:
+        -
+          Key: "Demo"
+          Value: "true"
+        -
+          Key: "Project"
+          Value: "GCP to AWS file transfer"
+Outputs:
+  FunctionStorage:
+    Value: !Ref FunctionStorage
